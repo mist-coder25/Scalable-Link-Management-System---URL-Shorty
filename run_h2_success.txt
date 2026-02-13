@@ -1,0 +1,120 @@
+﻿
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.2)
+
+2026-01-19T15:43:44.322+05:30  INFO 13188 --- [           main] c.urlshortener.UrlShortenerApplication   : Starting UrlShortenerApplication v0.0.1-SNAPSHOT using Java 24.0.1 with PID 13188 (C:\Users\LENOVO\OneDrive\Desktop\Projects\URL Shortner\target\url-shortener-0.0.1-SNAPSHOT.jar started by LENOVO in C:\Users\LENOVO\OneDrive\Desktop\Projects\URL Shortner)
+2026-01-19T15:43:44.324+05:30 DEBUG 13188 --- [           main] c.urlshortener.UrlShortenerApplication   : Running with Spring Boot v3.2.2, Spring v6.1.3
+2026-01-19T15:43:44.325+05:30  INFO 13188 --- [           main] c.urlshortener.UrlShortenerApplication   : The following 1 profile is active: "dev"
+2026-01-19T15:43:45.470+05:30  INFO 13188 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-19T15:43:45.472+05:30  INFO 13188 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-01-19T15:43:45.610+05:30  INFO 13188 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 129 ms. Found 4 JPA repository interfaces.
+2026-01-19T15:43:45.637+05:30  INFO 13188 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-01-19T15:43:45.640+05:30  INFO 13188 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-01-19T15:43:45.659+05:30  INFO 13188 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.urlshortener.repository.ApiKeyRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-01-19T15:43:45.659+05:30  INFO 13188 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.urlshortener.repository.ClickEventRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-01-19T15:43:45.660+05:30  INFO 13188 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.urlshortener.repository.UrlRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-01-19T15:43:45.660+05:30  INFO 13188 --- [           main] .RepositoryConfigurationExtensionSupport : Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.urlshortener.repository.UserRepository; If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository
+2026-01-19T15:43:45.660+05:30  INFO 13188 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+java : WARNING: A 
+restricted method in 
+java.lang.System has been 
+called
+At line:1 char:36
++ ... TIVE="dev"; java -jar 
+target/url-shortener-0.0.1-S
+NAPSHOT.jar > run_h ...
++                 ~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          
+    : NotSpecified: (WARNI  
+  NG: A rest...has been c   
+ alled:String) [], Remot    
+eException
+    + FullyQualifiedErrorId 
+    : NativeCommandError
+ 
+WARNING: 
+java.lang.System::load has 
+been called by org.apache.to
+mcat.jni.Library in an 
+unnamed module (jar:nested:/
+C:/Users/LENOVO/OneDrive/Des
+ktop/Projects/URL%20Shortner
+/target/url-shortener-0.0.1-
+SNAPSHOT.jar/!BOOT-INF/lib/t
+omcat-embed-core-10.1.18.jar
+!/)
+WARNING: Use --enable-native
+-access=ALL-UNNAMED to 
+avoid a warning for callers 
+in this module
+WARNING: Restricted methods 
+will be blocked in a future 
+release unless native 
+access is enabled
+
+2026-01-19T15:43:46.388+05:30  INFO 13188 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-01-19T15:43:46.400+05:30  INFO 13188 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-01-19T15:43:46.400+05:30  INFO 13188 --- [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.18]
+2026-01-19T15:43:46.440+05:30  INFO 13188 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-01-19T15:43:46.441+05:30  INFO 13188 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2018 ms
+2026-01-19T15:43:46.479+05:30  INFO 13188 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-01-19T15:43:46.770+05:30  INFO 13188 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2026-01-19T15:43:46.773+05:30  INFO 13188 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-01-19T15:43:46.784+05:30  INFO 13188 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+WARNING: A terminally 
+deprecated method in 
+sun.misc.Unsafe has been 
+called
+WARNING: sun.misc.Unsafe::ob
+jectFieldOffset has been 
+called by io.netty.util.inte
+rnal.PlatformDependent0$4 (j
+ar:nested:/C:/Users/LENOVO/O
+neDrive/Desktop/Projects/URL
+%20Shortner/target/url-short
+ener-0.0.1-SNAPSHOT.jar/!BOO
+T-INF/lib/netty-common-4.1.1
+05.Final.jar!/)
+WARNING: Please consider 
+reporting this to the 
+maintainers of class io.nett
+y.util.internal.PlatformDepe
+ndent0$4
+WARNING: sun.misc.Unsafe::ob
+jectFieldOffset will be 
+removed in a future release
+2026-01-19T15:43:47.212+05:30  INFO 13188 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-01-19T15:43:47.272+05:30  INFO 13188 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.1.Final
+2026-01-19T15:43:47.327+05:30  INFO 13188 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-01-19T15:43:47.554+05:30  INFO 13188 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-01-19T15:43:47.585+05:30  WARN 13188 --- [           main] org.hibernate.dialect.Dialect            : HHH000511: The 2.2.0 version for [org.hibernate.dialect.PostgreSQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 12.0.0. Check the community dialects project for available legacy versions.
+2026-01-19T15:43:47.589+05:30  WARN 13188 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-01-19T15:43:48.543+05:30  INFO 13188 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table api_keys (id bigserial not null, api_key varchar(255) not null, api_secret varchar(255) not null, created_at timestamp(6) not null, is_active boolean not null, name varchar(255) not null, user_id bigint not null, primary key (id))
+Hibernate: create table click_events (id bigserial not null, browser varchar(255), country varchar(255), device varchar(255), ip_address varchar(255), referrer varchar(255), timestamp timestamp(6) not null, url_mapping_id bigint not null, primary key (id))
+Hibernate: create table url_mapping (id bigint not null, click_count bigint not null, created_at timestamp(6) not null, device_rules TEXT, expires_at timestamp(6), geo_rules TEXT, is_active boolean not null, max_clicks bigint, original_url varchar(2048) not null, password varchar(255), short_code varchar(50) not null, user_id bigint, primary key (id))
+Hibernate: create table users (id bigserial not null, created_at timestamp(6) not null, email varchar(255) not null, full_name varchar(255) not null, password varchar(255) not null, primary key (id))
+Hibernate: alter table if exists api_keys drop constraint if exists UK_sgdkngj9u2lb7u4ar5guwnpx2
+Hibernate: alter table if exists api_keys add constraint UK_sgdkngj9u2lb7u4ar5guwnpx2 unique (api_key)
+Hibernate: alter table if exists url_mapping drop constraint if exists idx_short_code
+Hibernate: alter table if exists url_mapping add constraint idx_short_code unique (short_code)
+Hibernate: alter table if exists users drop constraint if exists UK_6dotkott2kjsp8vw4d0m25fb7
+Hibernate: alter table if exists users add constraint UK_6dotkott2kjsp8vw4d0m25fb7 unique (email)
+Hibernate: create sequence url_id_seq start with 1 increment by 1
+Hibernate: alter table if exists api_keys add constraint FK89d4ddye91twgmx31epv7ro7h foreign key (user_id) references users
+Hibernate: alter table if exists click_events add constraint FK7ncr4wp2g31flmc80x6pdmyxb foreign key (url_mapping_id) references url_mapping
+Hibernate: alter table if exists url_mapping add constraint FKpd4vqdk4o6lis35i2b1vo96v0 foreign key (user_id) references users
+2026-01-19T15:43:48.655+05:30  INFO 13188 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-01-19T15:43:49.091+05:30 DEBUG 13188 --- [           main] c.u.config.ApiKeyAuthenticationFilter    : Filter 'apiKeyAuthenticationFilter' configured for use
+2026-01-19T15:43:49.489+05:30  WARN 13188 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-01-19T15:43:49.598+05:30  INFO 13188 --- [           main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [static/index.html]
+2026-01-19T15:43:49.781+05:30  INFO 13188 --- [           main] o.s.s.web.DefaultSecurityFilterChain     : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5e08ed28, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@24b05292, org.springframework.security.web.context.SecurityContextHolderFilter@6bbff652, org.springframework.security.web.header.HeaderWriterFilter@69c7fb94, org.springframework.web.filter.CorsFilter@34d6e9a4, org.springframework.security.web.authentication.logout.LogoutFilter@18a349cb, com.urlshortener.config.ApiKeyAuthenticationFilter@49616310, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a495d88, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@45ea6c24, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@515a2afd, org.springframework.security.web.access.ExceptionTranslationFilter@475b796d, org.springframework.security.web.access.intercept.AuthorizationFilter@78fd1179]
+2026-01-19T15:43:50.142+05:30  INFO 13188 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2026-01-19T15:43:50.157+05:30  INFO 13188 --- [           main] c.urlshortener.UrlShortenerApplication   : Started UrlShortenerApplication in 6.405 seconds (process running for 6.972)

@@ -1,0 +1,180 @@
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="0; url=/dashboard.html">
+    <script>window.location.href = "/dashboard.html";</script>
+</head>
+<body>
+    <p>Redirecting to dashboard...</p>
+</body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">My Account</div>
+                <li class="menu-item">
+                    <button id="createLinkBtn" class="btn-primary full-width" style="border-radius: 8px; justify-content: center; display: flex; align-items: center; gap: 0.5rem;">
+                        <ion-icon name="add-circle-outline"></ion-icon> Create Smart Link
+                    </button>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content (unchanged) -->
+        <main class="main-content">
+            
+            <!-- My Details Section -->
+            <section id="details" class="tab-content">
+                <div class="page-header">
+                    <h1 class="page-title">My details</h1>
+                </div>
+                
+                <div class="profile-form">
+                    <h3>Personal Information</h3>
+                    <hr style="margin: 1rem 0; border: none; border-top: 1px solid #e2e8f0;">
+                    
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <input type="text" id="profName" class="form-control" placeholder="John Doe">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" id="profEmail" class="form-control" placeholder="email@example.com" readonly style="background-color: #f8fafc;">
+                    </div>
+                    
+                    <button class="btn-save">Save Changes</button>
+                </div>
+            </section>
+
+            <!-- My Links Section -->
+            <section id="links" class="tab-content hidden">
+                <div class="page-header">
+                    <h1 class="page-title">My Links</h1>
+                </div>
+
+                <div class="links-table-container">
+                    <table class="links-table">
+                        <thead>
+                            <tr>
+                                <th>Original URL</th>
+                                <th>Short URL</th>
+                                <th>Clicks</th>
+                                <th>Created</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="linksTableBody">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Analytics Section -->
+             <section id="analytics" class="tab-content hidden">
+                <div class="page-header">
+                    <h1 class="page-title">Analytics Overview</h1>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Total Links</div>
+                        <div class="stat-value" id="totalLinks">0</div>
+                    </div>
+                    <div class="stat-card">
+                         <div class="stat-label">Total Clicks</div>
+                        <div class="stat-value" id="totalClicks">0</div>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+                    <div class="chart-card full-width">
+                        <h3>Click Timeline</h3>
+                        <canvas id="clickHistoryChart"></canvas>
+                    </div>
+                    <div class="chart-flex">
+                        <div class="chart-card">
+                            <h3>Devices</h3>
+                            <canvas id="deviceChart"></canvas>
+                        </div>
+                        <div class="chart-card">
+                            <h3>Top Countries</h3>
+                            <canvas id="countryChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+             <!-- Settings Section -->
+             <section id="settings" class="tab-content hidden">
+                <div class="page-header">
+                    <h1 class="page-title">Account Settings</h1>
+                    <p>Coming Soon...</p>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Create Smart Link Modal -->
+    <div id="createLinkModal" class="modal hidden">
+        <div class="modal-content" style="max-width: 600px;">
+            <span class="close-modal" id="closeCreateModal">&times;</span>
+            <h2>Create Smart Link</h2>
+            
+            <div class="modal-tabs">
+                <button class="tab-btn active" data-target="tab-basic">Basic</button>
+                <button class="tab-btn" data-target="tab-rules">Rules</button>
+                <button class="tab-btn" data-target="tab-security">Security</button>
+            </div>
+
+            <div class="modal-body">
+                <!-- Basic Tab -->
+                <div id="tab-basic" class="modal-tab-content active">
+                    <div class="form-group">
+                        <label class="form-label">Destination URL</label>
+                        <input type="url" id="smartLongUrl" class="form-control" placeholder="https://example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Friendly Alias (Optional)</label>
+                        <input type="text" id="smartAlias" class="form-control" placeholder="my-custom-link" disabled title="Coming soon">
+                    </div>
+                </div>
+
+                <!-- Rules Tab -->
+                <div id="tab-rules" class="modal-tab-content hidden">
+                    <div class="form-group">
+                        <label class="form-label">Geo Targeting (JSON)</label>
+                        <textarea id="smartGeoRules" class="form-control" rows="3" placeholder='{"US": "https://us.example.com", "IN": "https://in.example.com"}'></textarea>
+                        <small style="color: grey;">Format: {"CountryCode": "TargetURL"}</small>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Device Targeting (JSON)</label>
+                        <textarea id="smartDeviceRules" class="form-control" rows="3" placeholder='{"mobile": "https://m.example.com", "desktop": "https://example.com"}'></textarea>
+                        <small style="color: grey;">Keys: mobile, desktop, tablet</small>
+                    </div>
+                </div>
+
+                <!-- Security Tab -->
+                <div id="tab-security" class="modal-tab-content hidden">
+                    <div class="form-group">
+                        <label class="form-label">Password Protection</label>
+                        <input type="password" id="smartPassword" class="form-control" placeholder="Optional password">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Expiration Date</label>
+                        <input type="date" id="smartExpiry" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Max Clicks</label>
+                        <input type="number" id="smartMaxClicks" class="form-control" placeholder="e.g. 100">
+                    </div>
+                </div>
+            </div>
+
+            <button id="submitSmartLink" class="btn-primary full-width" style="margin-top: 1.5rem;">Create Link</button>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

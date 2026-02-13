@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlinkURL – Smart Link Shortener</title>
+    <meta name="description" content="Shorten links in the blink of an eye. Fast, secure, analytics-powered URL shortener.">
+    <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="theme_init.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        /* Essential appended styles from deleted style_append.css */
+        .guest-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            background: var(--bg-accent-soft);
+            color: var(--accent-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: 500;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: var(--bg-surface);
+            padding: 4rem 5%;
+            margin-top: 5rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--accent-primary);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .social-links a {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-left: 1rem;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="blob-bg"></div>
+    
+    <nav>
+        <div class="logo">
+            <img src="images/logo.svg" alt="BlinkURL" style="height: 32px; vertical-align: middle; margin-right: 8px;">
+            BlinkURL
+        </div>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a id="navGuestBtn" href="#" class="nav-guest">Guest Mode</a>
+            <a id="navLoginBtn" href="#">Login</a>
+            <button id="themeToggle" class="theme-toggle-btn" title="Toggle Dark Mode">
+                <ion-icon name="moon-outline"></ion-icon>
+            </button>
+            <a href="#" class="btn-pill">Get Started</a>
+        </div>
+    </nav>
+
+    <main class="hero">
+        <div class="hero-content">
+            
+            <div id="guestBadge" class="guest-badge hidden">
+                <ion-icon name="person-outline"></ion-icon>
+                <span>Guest Mode Active (Links expire in 7 days)</span>
+            </div>
+            
+            <h1>Short links, <span class="highlight">powerful insights</span></h1>
+            
+            <p class="subtitle">
+                Shorten links in the blink of an eye. Fast, secure, analytics-powered URL shortener.
+            </p>
+
+            <!-- Pro Command Center -->
+            <div class="command-center-pro">
+                <div class="glass-panel">
+                    <!-- Main Input Row -->
+                    <div class="input-row-main">
+                        <div class="input-wrapper-pro">
+                            <ion-icon name="link-outline" class="field-icon"></ion-icon>
+                            <input type="url" id="longUrl" placeholder="Paste your long link here..." required>
+                            <button id="pasteBtn" class="action-icon-btn" title="Paste">
+                                <ion-icon name="clipboard-outline"></ion-icon>
+                            </button>
+                        </div>
+                        <button id="shortenBtn" class="btn-primary-glow">Shorten</button>
+                    </div>
+
+                    <!-- Secondary Controls (Toggle) -->
+                    <div class="controls-row">
+                        <button id="toggleDrawerBtn" class="btn-toggle-settings">
+                            <ion-icon name="options-outline"></ion-icon> <span>Advanced Options</span>
+                        </button>
+                    </div>
+
+                    <!-- Collapsible Drawer -->
+                    <div id="commandDrawer" class="settings-drawer hidden">
+                        <div class="drawer-content">
+                            <!-- Custom Alias Field -->
+                            <div class="setting-group">
+                                <label>Custom Alias</label>
+                                <div class="input-wrapper-pro small">
+                                    <span class="prefix-text">/</span>
+                                    <input type="text" id="customAlias" placeholder="custom-name">
+                                </div>
+                            </div>
+                            
+                            <!-- UTM Fields -->
+                            <div class="setting-group full-width">
+                                <label>UTM Tags</label>
+                                <div class="utm-inputs-grid">
+                                    <input type="text" id="utmSource" class="input-pill" placeholder="Source (twitter)">
+                                    <input type="text" id="utmMedium" class="input-pill" placeholder="Medium (social)">
+                                    <input type="text" id="utmCampaign" class="input-pill" placeholder="Campaign (launch)">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resultArea" class="hidden result-container">
+                <div class="short-link-box">
+                    <a id="shortLink" href="#" target="_blank">...</a>
+                    <button id="copyBtn" class="btn-copy"><ion-icon name="copy-outline"></ion-icon></button>
+                </div>
+                <div class="stats-box">
+                    <a id="statsLink" href="#">View Stats</a>
+                </div>
+            </div>
+            
+            <div id="errorArea" class="hidden">
+                <p id="errorMessage"></p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="logo" style="margin-bottom: 1rem;">
+                    <img src="images/logo.svg" alt="BlinkURL" style="height: 28px; vertical-align: middle; margin-right: 8px;">
+                    BlinkURL
+                </div>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">
+                    Shorten links in the blink of an eye. The fastest way to manage and track your URLs.
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#">Analytics</a></li>
+                    <li><a href="#">Integrations</a></li>
+                    <li><a href="#">Pricing</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://github.com/mist-coder25" target="_blank">GitHub</a></li>
+                    <li><a href="https://linkedin.com/in/snehal-thube-b208b225a">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 BlinkURL. All rights reserved.</div>
+            <div class="social-links">
+                <a href="https://github.com/mist-coder25" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+                <a href="https://linkedin.com/in/snehal-thube-b208b225a"><ion-icon name="logo-linkedin"></ion-icon></a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Auth Modals -->
+    <div id="authModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="loginForm">
+                <h2>Welcome Back</h2>
+                <div class="auth-error" style="color: #ef4444; margin-bottom: 1rem; text-align: center; display: none;"></div>
+                <input type="email" placeholder="Email" class="auth-input">
+                <input type="password" placeholder="Password" class="auth-input">
+                <a href="/oauth2/authorization/google" class="btn-google full-width">
+                    <ion-icon name="logo-google"></ion-icon> Continue with Google
+                </a>
+                <button id="guestLoginBtn" class="btn-guest full-width">Continue as Guest</button>
+                <button class="btn-primary full-width">Login</button>
+                <p class="switch-auth">Don't have an account? <span id="showSignup">Sign up</span></p>
+            </div>
+            <div id="signupForm" class="hidden">
+                <h2>Create Account</h2>
+                <div class="auth-error" style="color: #ef4444; margin-bottom: 1rem; text-align: center; display: none;"></div>
+                <input type="text" placeholder="Full Name" class="auth-input">
+                <input type="email" placeholder="Email" class="auth-input">
+                <input type="password" placeholder="Password" class="auth-input">
+                <a href="/oauth2/authorization/google" class="btn-google full-width">
+                    <ion-icon name="logo-google"></ion-icon> Continue with Google
+                </a>
+                <button id="guestSignupBtn" class="btn-guest full-width">Continue as Guest</button>
+                <button class="btn-primary full-width">Sign Up</button>
+                <p class="switch-auth">Already have an account? <span id="showLogin">Login</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

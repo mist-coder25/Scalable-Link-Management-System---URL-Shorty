@@ -1,0 +1,21 @@
+﻿java : Error: Could not 
+find or load main class 
+.profiles.active=dev
+At line:1 char:1
++ java -Dspring.profiles.act
+ive=dev -jar target/url-shor
+tener-0.0.1-SNA ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~
+    + CategoryInfo          
+    : NotSpecified: (Error  
+  : Could no...iles.activ   
+ e=dev:String) [], Remot    
+eException
+    + FullyQualifiedErrorId 
+    : NativeCommandError
+ 
+Caused by: java.lang.ClassNo
+tFoundException: 
+/profiles/active=dev
